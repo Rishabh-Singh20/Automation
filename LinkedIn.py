@@ -25,7 +25,10 @@ chrome_driver = webdriver.ChromeOptions()
 chrome_driver.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_driver)
-driver.get("https://www.linkedin.com/jobs/search/?currentJobId=3782263487&f_AL=true&f_C=31064142&f_E=2&f_JT=F%2CI&geoId=102713980&keywords=python%20developer&location=India&origin=JOB_SEARCH_PAGE_JOB_FILTER&refresh=true&sortBy=R")
+#make sure that the link you will paste is the job link with easy apply button
+#make sure you resume is uploaded to your account
+#only works for applications which require you to enter the phone number, and date of birth if asked
+driver.get("")
 sign_in = driver.find_element(By.LINK_TEXT, value="Sign in")
 sign_in.click()
 
@@ -64,7 +67,7 @@ for job in job_details:
         PHONE = input("Enter your phone number: \n")
         phone.send_keys(PHONE)
 
-# not every job will have for Date Of Birth, in such case the try method will check if there any detail being asked regarding the DoB, in case there is none then program
+# not every job will have for Date Of Birth, in such case the try method will check if there any detail being asked regarding the DoB, in case there is already then program
 # will not execute this line and will pass it
     try:
         DOB = driver.find_element(By.CSS_SELECTOR, value="input[id*=date-picker]")
